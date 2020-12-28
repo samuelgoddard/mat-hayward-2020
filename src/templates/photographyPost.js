@@ -55,23 +55,23 @@ const PhotographyPostPage = ({ data: { current } }) => {
           </div>
         </div>
 
-        <div className="pb-10 md:pb-10 px-6 md:px-12">
+        <div className="pb-10 md:pb-10 px-0 md:px-12">
           <motion.div variants={fade}>
           {
             current.imageryModular.map((block) => (
               <div key={block.id}>
                 {
                   block.model.apiKey === 'single_image' &&
-                    <Img fluid={block.single.fluid} key={block.single.title} alt={block.single.alt} className="w-full mb-6 md:mb-12" />
+                    <Img fluid={block.single.fluid} key={block.single.title} alt={block.single.alt} className="w-full mb-3 md:mb-12" />
                 }
                 {
                   block.model.apiKey === 'double_image' &&
                     <div className="overflow-hidden">
                       <div className="flex flex-wrap md:-mx-6">
-                        <div className="w-full md:w-1/2 md:px-6 mb-6 md:mb-12">
+                        <div className="w-full md:w-1/2 md:px-6 mb-3 md:mb-12">
                           <Img fluid={block.imageOne.fluid} key={block.imageOne.title} alt={block.imageOne.alt} className="w-full" />
                         </div>
-                        <div className="w-full md:w-1/2 md:px-6 mb-6 md:mb-12">
+                        <div className="w-full md:w-1/2 md:px-6 mb-3 md:mb-12">
                           <Img fluid={block.imageTwo.fluid} key={block.imageTwo.title} alt={block.imageTwo.alt} className="w-full" />
                         </div>
                       </div>
