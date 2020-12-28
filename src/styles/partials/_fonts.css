@@ -1,0 +1,37 @@
+/* Sainte Colombe (Serif) */
+@font-face {
+  font-family: 'Sainte Colombe';
+  src: url('../fonts/SainteColombe-Regular.woff') format('woff'),
+      url('../fonts/SainteColombe-Regular.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sainte Colombe';
+  src: url('../fonts/SainteColombe-ExtraLightItalic.woff') format('woff'),
+      url('../fonts/SainteColombe-ExtraLightItalic.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* Mier (Sans) */
+@font-face {
+  font-family: 'Mier';
+  src: url('../fonts/MierB-Demi.woff') format('woff'),
+      url('../fonts/MierB-Demi.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mier';
+  src: url('../fonts/MierB-Bold.woff') format('woff'),
+      url('../fonts/MierB-Bold.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 700;
+  font-style: bold;
+}
