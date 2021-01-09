@@ -34,7 +34,8 @@ module.exports = {
         '7xlvw': '5.5vw',
         '8xlvw': '7vw',
         '9xlvw': '8.25vw',
-        '10xlvw': '9.55vw',
+        '10xlvw': '10.25vw',
+        '11xlvw': '11.25vw',
       },
       spacing: {
         '1vw': '1vw',
@@ -59,6 +60,7 @@ module.exports = {
         '65vh': '65vh',
         '75vh': '75vh',
         '85vh': '85vh',
+        '95vh': '95vh',
         '72': '22rem',
       },
       lineHeight: {

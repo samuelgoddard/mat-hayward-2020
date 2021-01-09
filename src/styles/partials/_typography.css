@@ -14,11 +14,19 @@ h1,.h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 h1 {
-	@apply text-xl;
+  @apply text-9xlvw;
+
+  @screen md {
+    @apply text-3xlvw;
+  }
 }
 
 h2 {
-	@apply text-lg;
+  @apply text-8xlvw;
+  
+  @screen md {
+    @apply text-2xlvw;
+  }
 }
 
 /* Link */
@@ -40,12 +48,38 @@ h2 {
   p {
     @apply mb-6 text-lg;
 
-    @screen md {
-      @apply text-xl;
-    }
+    
 
     &:last-of-type {
       @apply mb-0;
+    }
+  }
+
+  h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+    @apply mt-12 mb-6;
+  }
+
+  ul {
+    @apply mb-6 list-inside list-disc;
+
+    li {
+      @apply text-lg;
+    }
+  }
+  
+  ol {
+    @apply mb-6 list-inside list-decimal;
+
+    li {
+      @apply text-lg;
+    }
+  }
+
+  a {
+    @apply underline;
+
+    &:hover, &:focus {
+      @apply text-gray-600;
     }
   }
 
@@ -53,6 +87,10 @@ h2 {
   p + h1, p + h2, p + h3, p + h4 {
     @apply pt-6 block;
   }
+}
+
+figcaption {
+  @apply italic opacity-50 py-2 block border-b border-black border-opacity-25;
 }
 
 .nav-item {

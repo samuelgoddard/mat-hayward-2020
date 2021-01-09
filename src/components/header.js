@@ -5,7 +5,7 @@ const Header = () => (
   <header>
     <div className="md:absolute top-0 left-0 z-10 p-6 md:p-12">
       <div className="flex flex-wrap md:block">
-        <Link className="uppercase font-sans font-bold tracking-widest mb-6 block text-base md:fixed top-0 left-0 md:p-12" to="/">
+        <Link className="uppercase font-sans font-bold tracking-widest mb-6 block text-base md:fixed top-0 left-0 md:m-12" to="/">
             Mat Hayward
           </Link>
 
@@ -29,19 +29,21 @@ const Header = () => (
               </Link>
             </li>
             <li>
+              <Link
+                activeClassName="is--active"
+                className="nav-item font-sans uppercase inline-block mb-1 text-sm"
+                partiallyActive={true}
+                to="/journal">
+                  Journal
+              </Link>
+            </li>
+            <li>
               <a
                 className="nav-item font-sans uppercase inline-block mb-1 text-sm"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://instagram.com/mathaywarduk">
                   Instagram
-                </a>
-              </li>
-            <li>
-              <a
-                className="nav-item font-sans uppercase inline-block mb-1 text-sm"
-                href="mailto:hello@mathayward.co.uk">
-                  Contact
               </a>
             </li>
             {/* <li>

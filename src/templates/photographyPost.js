@@ -2,11 +2,10 @@ import React from "react"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
-import BackgroundImage from 'gatsby-background-image'
 import { motion } from 'framer-motion'
 import { fade } from "../helpers/transitionHelper"
 
-const PhotographyPostPage = ({ data: { current } }) => {
+const PhotographyPostPage = ({ data: { current, related } }) => {
   return (
     <>
       <SEO title={current.title} />
@@ -21,7 +20,7 @@ const PhotographyPostPage = ({ data: { current } }) => {
               variants={fade}
               className="block md:hidden pb-2"
             >
-              <h1 className="font-display text-10xlvw mb-3 pb-0 px-6">{current.title}</h1>
+              <h1 className="font-display text-11xlvw mb-3 pb-0 px-6">{current.title}</h1>
             </motion.div>
 
             <div className="w-full md:w-7/12 h-full flex flex-wrap relative order-2 md:order-1">
@@ -30,7 +29,7 @@ const PhotographyPostPage = ({ data: { current } }) => {
                   variants={fade}
                   className="w-full md:w-7/12 xl:w-5/12 mx-auto px-6 md:px-0 max-w-2xl"
                 >
-                  <span className="block text-xs tracking-wider font-sans uppercase mb-3">Info</span>
+                  {/* <span className="block text-xs tracking-wider font-sans uppercase mb-3">Info</span> */}
                   <span className="block content" dangerouslySetInnerHTML={{__html:current.blurb}}></span>
                 </motion.div>
               </div>
@@ -42,15 +41,12 @@ const PhotographyPostPage = ({ data: { current } }) => {
               </motion.div>
             </div>
 
-            <motion.div variants={fade} className="w-full md:w-5/12 h-72 md:h-full relative order-1 md:order-2 mb-6 md:mb-0">
-              <BackgroundImage
-                Tag="div"
-                className="w-full h-full"
-                fluid={current.featuredImage.fluid}
-                backgroundColor={`#040e18`}
-              >
-                <span className="text-lg md:text-2xl uppercase font-sans tracking-widest upright absolute bottom-0 md:bottom-auto md:top-0 right-0 md:right-auto md:left-0 md:mt-16 md:-ml-5 z-10 mr-5 md:-mr-0 mb-12 md:mb-0">{current.location} &bull; {current.date}</span>
-              </BackgroundImage>
+            <motion.div variants={fade} className="w-full md:w-5/12 h-72 md:h-full relative order-1 md:order-2 mb-6 md:mb-0 md:pl-5">
+              <span className="text-lg md:text-2xl uppercase font-sans tracking-widest upright absolute bottom-0 md:bottom-auto md:top-0 right-0 md:right-auto md:left-0 md:mt-16 md:-ml-0 z-10 mr-5 md:-mr-0 mb-12 md:mb-0">{current.location} &bull; {current.date}</span>
+
+              <div className="w-full h-full relative overflow-hidden">
+                <Img className="w-full h-full object-cover object-center image-scale-in" fluid={current.featuredImage.fluid} alt={current.featuredImage.alt} />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -62,16 +58,16 @@ const PhotographyPostPage = ({ data: { current } }) => {
               <div key={block.id}>
                 {
                   block.model.apiKey === 'single_image' &&
-                    <Img fluid={block.single.fluid} key={block.single.title} alt={block.single.alt} className="w-full mb-3 md:mb-12" />
+                    <Img fluid={block.single.fluid} key={block.single.title} alt={block.single.alt} className="w-full mb-0 md:mb-12" />
                 }
                 {
                   block.model.apiKey === 'double_image' &&
                     <div className="overflow-hidden">
                       <div className="flex flex-wrap md:-mx-6">
-                        <div className="w-full md:w-1/2 md:px-6 mb-3 md:mb-12">
+                        <div className="w-full md:w-1/2 md:px-6 mb-0 md:mb-12">
                           <Img fluid={block.imageOne.fluid} key={block.imageOne.title} alt={block.imageOne.alt} className="w-full" />
                         </div>
-                        <div className="w-full md:w-1/2 md:px-6 mb-3 md:mb-12">
+                        <div className="w-full md:w-1/2 md:px-6 mb-0 md:mb-12">
                           <Img fluid={block.imageTwo.fluid} key={block.imageTwo.title} alt={block.imageTwo.alt} className="w-full" />
                         </div>
                       </div>
@@ -87,9 +83,9 @@ const PhotographyPostPage = ({ data: { current } }) => {
           <motion.div variants={fade}>
           <span className="md:ml-auto block text-xs tracking-wider font-sans uppercase mb-3 md:mb-5 md:text-center">Other Locations</span>
             <div className="w-full xl:w-auto ml-auto md:flex md:flex-wrap md:justify-end">
-              <Link to="/post" className="font-display font-light tracking-tighter leading-none text-2xl md:text-3xlvw xl:text-xlvw leading-snug mr-5 block">Jasper</Link>
-              <Link to="/post" className="font-display font-light tracking-tighter leading-none text-2xl md:text-3xlvw xl:text-xlvw leading-snug mr-5 block">Mt Assiniboine</Link>
-              <Link to="/post" className="font-display font-light tracking-tighter leading-none text-2xl md:text-3xlvw xl:text-xlvw leading-snug mr-0">Kananaskis</Link>
+              {related.edges.map(({ node }, index) => (
+                <Link key={index} to={`/photography/${node.slug}`} className="font-display font-light tracking-tighter leading-none text-2xl md:text-3xlvw xl:text-xlvw mr-5 block">{ node.title }</Link>
+              ))}
             </div>
           </motion.div>
           
@@ -109,6 +105,14 @@ export default PhotographyPostPage
 
 export const query = graphql`
   query PhotographyPostQuery($slug: String!) {
+    related: allDatoCmsPhotography(filter: {slug: {ne: $slug}}, limit: 3) {
+      edges {
+        node {
+          title
+          slug
+        }
+      }
+    }
     current: datoCmsPhotography(slug: { eq: $slug }) {
       title
       location

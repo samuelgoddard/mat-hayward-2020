@@ -38,21 +38,17 @@ const IndexPage = ({ data: { bio, photography } }) => {
               variants={fade}
               className="absolute top-0 right-0 z-10 px-6 md:px-0 -mt-20vw md:-mt-5vw"
             >
-              <h1 className="text-10xlvw md:text-6xlvw xl:text-5xlvw 3xl:text-4xlvw w-9/12 md:w-8/12 md:ml-auto md:-mr-10vw xl:w-8/12 xl:-mr-10vw leading-minimal">{ bio.heading }</h1>
+              <h1 className="text-11xlvw md:text-6xlvw xl:text-5xlvw 3xl:text-4xlvw w-10/12 md:w-8/12 md:ml-auto md:-mr-10vw xl:w-8/12 xl:-mr-10vw leading-minimal">{ bio.heading }</h1>
             </motion.div>
           </div>
 
           <motion.div variants={fade}>
             <div className="w-full md:w-1/2 md:pl-16 xl:w-1/2 mx-auto relative max-w-2xl">
-              <div className="px-6 md:px-0">
+              <div className="px-6 md:px-0 w-11/12 md:w-full">
                 <div className="mb-8 md:mb-12">
                   <span className="block text-xs tracking-wider font-sans uppercase mb-3">Info</span>
                   <span className="content" dangerouslySetInnerHTML={{__html:bio.content}}></span>
                 </div>
-
-                <span className="block text-xs tracking-wider font-sans uppercase mb-3">Stay in touch</span>
-                <a className="font-heading inline text-xl md:text-2xl link" href="https://instagram.com/mathaywarduk" target="_blank" rel="noopener noreferrer">Instagram</a><br/>
-                <a className="font-heading inline text-xl md:text-2xl link" href="mailto:hello@mathayward.co.uk">Email</a>
               </div>
             </div>
           </motion.div>

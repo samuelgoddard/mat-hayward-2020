@@ -11,3 +11,19 @@
 
 /* Tailwind Utils */
 @import 'tailwindcss/utilities';
+
+.image-scale-in {
+  animation-name: revealIntroImageScale;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  transform-origin: center;
+}
+
+@keyframes revealIntroImageScale {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
