@@ -5,10 +5,14 @@ import SEO from "../components/seo"
 import { motion } from 'framer-motion'
 import { fade } from "../helpers/transitionHelper"
 
-const PhotographyPage = ({ data: { photography } }) => {
+const PhotographyPage = ({ data: { photography }, location}) => {
   return (
     <>
-      <SEO title="Photography" />
+      <SEO
+        titleOverride={ "Photography" }
+        pathnameOverride={ location.pathname}
+      />
+      
       <motion.section
         initial="initial"
         animate="enter"

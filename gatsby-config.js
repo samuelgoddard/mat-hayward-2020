@@ -2,8 +2,9 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: `Mat Hayward`,
-    description: `Photography Portfolio of Mat Hayward`,
+    title: `Mat Hayward Photography`,
+    siteUrl: `https://mat-hayward-2020.vercel.app`,
+    description: `Mat Hayward photography portfolio.`,
     author: `@samuelgoddard`,
   },
   plugins: [

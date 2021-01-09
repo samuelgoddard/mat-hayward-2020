@@ -4,10 +4,16 @@ import SEO from "../components/seo"
 import { motion } from 'framer-motion'
 import { fade } from "../helpers/transitionHelper"
 
-const IndexPage = ({ data: { bio, photography } }) => {
+const IndexPage = ({ data: { bio, photography }, location }) => {
   return (
     <>
-      <SEO title="Biography" />
+      <SEO
+        titleOverride={ bio.metaTags && bio.metaTags.title ? bio.metaTags.title : bio.title }
+        descriptionOverride={ bio.metaTags && bio.metaTags.description ? bio.metaTags.description : null }
+        pathnameOverride={ location.pathname}
+        imageOverride={ bio.metaTags && bio.metaTags.image ? bio.metaTags.image.url : null }
+      />
+
       <motion.section
         initial="initial"
         animate="enter"
@@ -89,6 +95,14 @@ export const query = graphql`
     bio: datoCmsBiography {
       heading
       content
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       featuredImage {
         url
         title

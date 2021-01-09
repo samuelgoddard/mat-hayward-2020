@@ -5,10 +5,16 @@ import Img from "gatsby-image"
 import { motion } from 'framer-motion'
 import { fade } from "../helpers/transitionHelper"
 
-const PhotographyPostPage = ({ data: { current, related } }) => {
+const PhotographyPostPage = ({ data: { current, related }, location }) => {
   return (
     <>
-      <SEO title={current.title} />
+      <SEO
+        titleOverride={ current.seoMeta && current.seoMeta.title ? current.seoMeta.title : current.title }
+        descriptionOverride={ current.seoMeta && current.seoMeta.description ? current.seoMeta.description : null }
+        pathnameOverride={ location.pathname}
+        imageOverride={ current.seoMeta && current.seoMeta.image ? current.seoMeta.image.url : null }
+      />
+
       <motion.section
         initial="initial"
         animate="enter"
@@ -117,6 +123,14 @@ export const query = graphql`
       title
       location
       date
+      seoMeta {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       blurb
       featuredImage {
         url

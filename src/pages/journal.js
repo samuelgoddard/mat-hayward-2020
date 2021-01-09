@@ -5,10 +5,14 @@ import Moment from "react-moment"
 import { motion } from 'framer-motion'
 import { fade } from "../helpers/transitionHelper"
 
-const JournalPage = ({ data: { journal, photography } }) => {
+const JournalPage = ({ data: { journal, photography }, location }) => {
   return (
     <>
-      <SEO title="Journal" />
+      <SEO
+        titleOverride={ "Journal" }
+        pathnameOverride={ location.pathname}
+      />
+
       <motion.section
         initial="initial"
         animate="enter"
@@ -136,6 +140,14 @@ export const query = graphql`
       edges {
         node {        
           title
+          metaTags {
+            title
+            description
+            twitterCard
+            image {
+              url
+            }
+          }
           meta {
             createdAt
           }
