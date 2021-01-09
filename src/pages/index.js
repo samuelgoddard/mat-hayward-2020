@@ -29,14 +29,17 @@ const IndexPage = ({ data: { bio, photography } }) => {
               className="relative index-image pt-7vw"
             >
               <span className="text-xl md:text-2xl uppercase font-sans tracking-widest md:upright absolute bottom-0 right-0 md:right-auto z-10 md:left-0 -mb-4 pb-px mr-8 md:-ml-5 md:mb-16 xl:mb-24 md:pb-0">Biography &bull; MH</span>
-              <div className="opacity-75">
-                <Img fluid={bio.featuredImage.fluid} key={bio.featuredImage.title} alt={bio.featuredImage.alt} className="w-full" />
+
+              <div className="relative overflow-hidden w-full h-full">
+                <div className="opacity-75">
+                  <Img fluid={bio.featuredImage.fluid} key={bio.featuredImage.title} alt={bio.featuredImage.alt} className="w-full image-scale-in" />
+                </div>
               </div>
             </motion.div>
 
             <motion.div
               variants={fade}
-              className="absolute top-0 right-0 z-10 px-6 md:px-0 -mt-20vw md:-mt-5vw"
+              className="absolute top-0 right-0 z-10 px-4 md:px-0 -mt-20vw md:-mt-5vw"
             >
               <h1 className="text-11xlvw md:text-6xlvw xl:text-5xlvw 3xl:text-4xlvw w-10/12 md:w-8/12 md:ml-auto md:-mr-10vw xl:w-8/12 xl:-mr-10vw leading-minimal">{ bio.heading }</h1>
             </motion.div>
@@ -44,7 +47,7 @@ const IndexPage = ({ data: { bio, photography } }) => {
 
           <motion.div variants={fade}>
             <div className="w-full md:w-1/2 md:pl-16 xl:w-1/2 mx-auto relative max-w-2xl">
-              <div className="px-6 md:px-0 w-11/12 md:w-full">
+              <div className="px-4 md:px-0 w-11/12 md:w-full">
                 <div className="mb-8 md:mb-12">
                   <span className="block text-xs tracking-wider font-sans uppercase mb-3">Info</span>
                   <span className="content" dangerouslySetInnerHTML={{__html:bio.content}}></span>

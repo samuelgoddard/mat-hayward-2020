@@ -20,14 +20,14 @@ const PhotographyPostPage = ({ data: { current, related } }) => {
               variants={fade}
               className="block md:hidden pb-2"
             >
-              <h1 className="font-display text-11xlvw mb-3 pb-0 px-6">{current.title}</h1>
+              <h1 className="font-display text-11xlvw mb-3 pb-0 px-4">{current.title}</h1>
             </motion.div>
 
             <div className="w-full md:w-7/12 h-full flex flex-wrap relative order-2 md:order-1">
               <div className="w-full self-center">
                 <motion.div
                   variants={fade}
-                  className="w-full md:w-7/12 xl:w-5/12 mx-auto px-6 md:px-0 max-w-2xl"
+                  className="w-full md:w-7/12 xl:w-5/12 mx-auto px-4 md:px-0 max-w-2xl"
                 >
                   {/* <span className="block text-xs tracking-wider font-sans uppercase mb-3">Info</span> */}
                   <span className="block content" dangerouslySetInnerHTML={{__html:current.blurb}}></span>
@@ -79,7 +79,7 @@ const PhotographyPostPage = ({ data: { current, related } }) => {
           </motion.div>
         </div>
 
-        <div className="flex flex-wrap items-center container px-6 pb-8 md:pb-24 xl:pb-32 md:justify-center">
+        <div className="flex flex-wrap items-center container px-4 pb-8 md:pb-24 xl:pb-32 md:justify-center">
           <motion.div variants={fade}>
           <span className="md:ml-auto block text-xs tracking-wider font-sans uppercase mb-3 md:mb-5 md:text-center">Other Locations</span>
             <div className="w-full xl:w-auto ml-auto md:flex md:flex-wrap md:justify-end">

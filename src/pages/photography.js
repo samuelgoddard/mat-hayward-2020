@@ -24,7 +24,7 @@ const PhotographyPage = ({ data: { photography } }) => {
         </motion.div>
 
         <div className="w-full md:w-7/12 md:pl-16 xl:w-1/2 xl:pl-0 mx-auto relative mb-12 md:mb-20">
-          <nav className="px-6 md:px-0">
+          <nav className="px-4 md:px-0">
             <ul>
             {photography.edges.map(({ node }, index) => (
               <motion.li

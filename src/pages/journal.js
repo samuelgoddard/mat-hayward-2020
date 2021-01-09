@@ -23,7 +23,7 @@ const JournalPage = ({ data: { journal, photography } }) => {
           <Img className="w-full opacity-50" fluid={photography.edges[5].node.featuredImage.fluid } />
         </motion.div>
 
-        <div className="w-full md:w-7/12 md:pl-16 xl:w-7/12 xl:pl-0 mx-auto relative px-6 md:px-0">
+        <div className="w-full md:w-7/12 md:pl-16 xl:w-7/12 xl:pl-0 mx-auto relative px-0 md:px-0">
           {journal.edges.map(({ node }, index) => {
             return (
               <motion.div
@@ -32,20 +32,22 @@ const JournalPage = ({ data: { journal, photography } }) => {
                 className="relative border-b border-gray-200 mb-12 md:mb-20 pb-12 md:pb-20"
               >
                 { node.featuredImage && (
-                  <Img fluid={node.featuredImage.fluid} alt={node.featuredImage.title} className="w-full opacity-75" />
+                  <div className="w-full h-full relative overflow-hidden">
+                    <Img fluid={node.featuredImage.fluid} alt={node.featuredImage.title} className="w-full opacity-75 image-scale-in" />
+                  </div>
                 )}
 
-                <span className="text-xl md:text-2xl uppercase font-sans tracking-widest  absolute top-0 left-0 z-10 -mt-4 ml-5vw">Journal &bull; MH</span>
+                <span className="text-xl md:text-2xl uppercase font-sans tracking-widest  absolute top-0 left-0 z-10 -mt-4 md:ml-5vw px-4 md:px-0">Journal &bull; MH</span>
 
-                <div className="md:-mr-10vw w-10/12 ml-auto mb-10 md:mb-5vw xl:mb-4vw">
-                  <h1 className="text-10xlvw md:text-5xlvw font-display relative leading-none border-b border-transparent flex flex-wrap tracking-tighter -mt-5vw md:-mt-3vw mb-3 pb-0">
+                <div className="md:-mr-10vw w-10/12 ml-auto mb-10 md:mb-5vw xl:mb-4vw px-4 md:px-0">
+                  <h1 className="text-10xlvw md:text-5xlvw font-display relative leading-none border-b border-transparent flex flex-wrap tracking-tighter -mt-6vw md:-mt-3vw mb-3 pb-0">
                     {node.title} <span className="font-light text-4xlvw md:text-2xlvw ml-3"></span>
                   </h1>
                   <span className="block uppercase text-xs font-sans tracking-widest pl-1">Posted <Moment format="DD MMMM Y">{ node.meta.createdAt }</Moment></span>
                 </div>
 
 
-                <motion.div variants={fade} className="max-w-3xl mx-auto">
+                <motion.div variants={fade} className="max-w-3xl mx-auto px-4 md:px-0">
                   {/* <span className="block uppercase text-xs font-sans tracking-widest mb-4">Info</span> */}
                   {
                     node.content.map((block) => (

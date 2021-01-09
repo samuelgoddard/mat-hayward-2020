@@ -3,7 +3,7 @@ import React from "react"
 
 const Header = () => (
   <header>
-    <div className="md:absolute top-0 left-0 z-10 p-6 md:p-12">
+    <div className="md:absolute top-0 left-0 z-10 p-4 py-6 md:p-12">
       <div className="flex flex-wrap md:block">
         <Link className="uppercase font-sans font-bold tracking-widest mb-6 block text-base md:fixed top-0 left-0 md:m-12" to="/">
             Mat Hayward
