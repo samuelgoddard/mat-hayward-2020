@@ -34,7 +34,7 @@ const JournalTemplatePage = ({ data: { journal }, location }) => {
                 )}                 
               </div>
 
-              <div className="w-full md:w-10/12 xl:w-10/12 ml-auto mb-10 md:mb-5vw xl:mb-4vw px-4 md:px-0 text-right">
+              <div className="w-full md:w-8/12 xl:w-8/12 ml-auto mb-10 md:mb-5vw xl:mb-4vw px-4 md:px-0 text-right">
                 <h1 className="text-10xlvw md:text-5xlvw font-display relative leading-none border-b border-transparent tracking-tighter mb-3 pb-0 uppercase mt-3 md:mt-6 md:pr-12">
                   {journal.title}
                 </h1>
@@ -50,7 +50,7 @@ const JournalTemplatePage = ({ data: { journal }, location }) => {
                       block.model.apiKey === 'text' &&
                         <div className="w-10/12 md:w-10/12 md:pl-16 lg:w-10/12 lg:pl-8 xl:pl-20 xl:w-11/12 md:ml-auto relative mb-8 md:mb-12 xl:mb-16">
                           <div className="w-full md:w-9/12 xl:pl-2">
-                            <div className="content max-w-3xl" dangerouslySetInnerHTML={{ __html: block.text }}></div>
+                            <div className="content max-w-xl" dangerouslySetInnerHTML={{ __html: block.text }}></div>
                           </div>
                         </div>
                     }
