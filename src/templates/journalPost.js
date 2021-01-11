@@ -1,23 +1,23 @@
 import React from "react"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
-// import Moment from "react-moment"
 import { motion } from 'framer-motion'
 import { fade } from "../helpers/transitionHelper"
 
-const JournalTemplatePage = ({ data: { journal, photography }, location }) => {
+const JournalTemplatePage = ({ data: { journal }, location }) => {
   return (
     <>
       <SEO
-        titleOverride={ "Journal" }
+        titleOverride={ current.metaTags && journal.metaTags.title ? journal.metaTags.title : journal.title }
+        descriptionOverride={ journal.metaTags && journal.metaTags.description ? journal.metaTags.description : null }
         pathnameOverride={ location.pathname}
+        imageOverride={ journal.metaTags && journal.metaTags.image ? journal.metaTags.image.url : null }
       />
 
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
-        // className="pt-12 md:pt-40 pb-24 md:pb-40 overflow-hidden relative"
         className="pb-24 md:pb-32 overflow-hidden relative"
       >
         <div className="w-full">
@@ -43,7 +43,6 @@ const JournalTemplatePage = ({ data: { journal, photography }, location }) => {
 
 
             <motion.div variants={fade} className="px-4 md:px-12">
-              {/* <span className="block uppercase text-xs font-sans tracking-widest mb-4">Info</span> */}
               {
                 journal.content.map((block) => (
                   <div key={block.id}>
