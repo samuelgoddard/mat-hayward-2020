@@ -47,7 +47,9 @@ const IndexPage = ({ data: { bio, photography }, location }) => {
               variants={fade}
               className="absolute top-0 right-0 z-10 px-4 md:px-0 -mt-20vw md:-mt-5vw"
             >
-              <h1 className="text-10xlvw md:text-6xlvw xl:text-5xlvw 3xl:text-4xlvw w-full pr-10vw md:pr-0 md:w-full md:ml-auto md:-mr-15vw xl:w-11/12 xl:-mr-15vw leading-minimal uppercase">{ bio.heading }</h1>
+              <h1 className="text-10xlvw md:text-6xlvw xl:text-5xlvw 3xl:text-4xlvw w-full pr-10vw md:pr-0 md:w-full md:ml-auto md:-mr-15vw xl:w-11/12 xl:-mr-15vw leading-minimal uppercase">
+                { bio.heading }
+              </h1>
             </motion.div>
           </div>
 
