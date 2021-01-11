@@ -3,13 +3,13 @@ import React from "react"
 
 const Header = () => (
   <header>
-    <div className="md:absolute top-0 left-0 z-10 p-4 py-6 md:p-12">
+    <div className="md:fixed top-0 left-0 z-10 p-4 py-6 md:p-12">
       <div className="flex flex-wrap md:block">
-        <Link className="uppercase font-sans font-bold tracking-widest mb-6 block text-base md:fixed top-0 left-0 md:m-12" to="/">
+        <Link className="uppercase font-sans font-bold tracking-widest mb-0 pb-0 block text-base" to="/">
             Mat Hayward
           </Link>
 
-        <nav className="ml-auto md:ml-0 text-right md:text-left md:mt-10">
+        <nav className="ml-auto md:ml-0 text-right md:text-left md:mt-4">
           <ul>
             <li>
               <Link

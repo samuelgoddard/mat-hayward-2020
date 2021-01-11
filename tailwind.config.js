@@ -71,7 +71,8 @@ module.exports = {
   variants: {
     opacity: ['responsive', 'hover', 'focus', 'group-hover', 'group-focus'],
     margin: ['responsive', 'hover', 'focus', 'group-hover', 'group-focus'],
-    padding: ['responsive', 'hover', 'focus', 'group-hover', 'group-focus']
+    padding: ['responsive', 'hover', 'focus', 'group-hover', 'group-focus'],
+    scale: ['responsive', 'hover', 'focus', 'group-hover', 'group-focus']
   },
   corePlugins: {
     container: false

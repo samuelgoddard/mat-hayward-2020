@@ -1,5 +1,5 @@
 body {
-  @apply font-serif antialiased;
+  @apply font-display antialiased;
 }
 
 /* Headings */
@@ -46,9 +46,11 @@ h2 {
 .content {
   /* Paragraph */
   p {
-    @apply mb-6 text-lg;
+    @apply mb-6 text-lg tracking-tight;
 
-    
+    @screen md {
+      @apply text-xl mb-8;
+    }
 
     &:last-of-type {
       @apply mb-0;
@@ -62,16 +64,32 @@ h2 {
   ul {
     @apply mb-6 list-inside list-disc;
 
+    @screen md {
+      @apply mb-8;
+    }
+
     li {
       @apply text-lg;
+
+      @screen md {
+        @apply text-xl
+      }
     }
   }
   
   ol {
     @apply mb-6 list-inside list-decimal;
 
+    @screen md {
+      @apply mb-8;
+    }
+
     li {
       @apply text-lg;
+
+      @screen md {
+        @apply text-xl
+      }
     }
   }
 
@@ -86,11 +104,19 @@ h2 {
   /* Headings following paragraphs */
   p + h1, p + h2, p + h3, p + h4 {
     @apply pt-6 block;
+
+    @screen md {
+      @apply pt-8;
+    }
   }
 }
 
 figcaption {
-  @apply italic opacity-50 py-2 block border-b border-black border-opacity-25;
+  @apply uppercase py-2 block text-sm mb-5;
+
+  @screen md {
+    @apply text-base;
+  }
 }
 
 .nav-item {

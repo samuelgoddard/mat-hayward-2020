@@ -1,31 +1,7 @@
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const createPhotography = require(`./gatsby/createPhotography`)
+const createJournal = require(`./gatsby/createJournal`)
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
-
-  return new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allDatoCmsPhotography {
-          edges {
-            node {
-              slug
-            }
-          }
-        }
-      }
-    `).then(result => {
-      result.data.allDatoCmsPhotography.edges.map(({ node: photography }) => {
-        createPage({
-          path: `photography/${photography.slug}`,
-          component: path.resolve(`./src/templates/photographyPost.js`),
-          context: {
-            slug: photography.slug,
-          },
-        })
-      })
-      resolve()
-    })
-  })
+exports.createPages = async ({ actions, graphql }) => {
+  await createPhotography({ actions, graphql })
+  await createJournal({ actions, graphql })
 }
