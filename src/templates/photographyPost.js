@@ -35,7 +35,6 @@ const PhotographyPostPage = ({ data: { current, related }, location }) => {
                   variants={fade}
                   className="w-full md:w-7/12 xl:w-5/12 mx-auto px-4 md:px-0 max-w-2xl"
                 >
-                  {/* <span className="block text-xs tracking-wider font-sans uppercase mb-3">Info</span> */}
                   <span className="block content" dangerouslySetInnerHTML={{__html:current.blurb}}></span>
                 </motion.div>
               </div>

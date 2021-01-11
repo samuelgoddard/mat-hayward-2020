@@ -20,11 +20,11 @@ const PhotographyPage = ({ data: { photography }, location}) => {
         className="pt-20 md:pt-40 pb-12 md:pb-40 overflow-hidden relative"
       >
         <motion.div variants={fade} className="hidden md:block fixed top-0 left-0 z-0 w-2/12 xl:pr-8 mt-56 -ml-8">
-          <Img className="w-full opacity-50" fluid={photography.edges[3].node.featuredImage.fluid } />
+          <Img className="w-full opacity-50" fluid={photography.edges[3].node.featuredImage.fluid } alt={photography.edges[3].node.featuredImage.alt} />
         </motion.div>
 
         <motion.div variants={fade} className="hidden md:block fixed bottom-0 right-0 z-0 w-2/12 xl:pl-6 mb-10 -mr-8">
-          <Img className="w-full opacity-50" fluid={photography.edges[4].node.featuredImage.fluid } />
+          <Img className="w-full opacity-50" fluid={photography.edges[4].node.featuredImage.fluid } alt={photography.edges[4].node.featuredImage.alt} />
         </motion.div>
 
         <div className="w-full md:w-8/12 md:pl-16 xl:w-6/12 xl:pl-0 mx-auto relative mb-12 md:mb-20">
@@ -39,7 +39,6 @@ const PhotographyPage = ({ data: { photography }, location}) => {
                   {node.title}
 
                   <span className="font-thin text-4xlvw md:text-2xlvw ml-3">({node.date})</span>
-                  {/* <span className="text-2xlvw block md:absolute top-0 right-0  text-left no-underline font-light">({node.date})</span> */}
                 </Link>
               </motion.li>
             ))}

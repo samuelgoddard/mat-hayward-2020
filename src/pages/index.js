@@ -22,11 +22,11 @@ const IndexPage = ({ data: { bio, photography }, location }) => {
         <div className="pt-40 md:pt-15vw pb-24 md:pb-40 overflow-hidden relative">
 
           <motion.div variants={fade} className="hidden md:block absolute top-0 left-0 z-0 w-2/12 xl:pr-8 mt-55vh -ml-8">
-            <Img className="w-full opacity-50" fluid={photography.edges[0].node.featuredImage.fluid } />
+            <Img className="w-full opacity-50" fluid={photography.edges[0].node.featuredImage.fluid } alt={photography.edges[0].node.featuredImage.alt} />
           </motion.div>
 
           <motion.div variants={fade} className="hidden md:block absolute bottom-0 right-0 z-0 w-2/12 xl:pl-6 mb-25vh -mr-8">
-            <Img className="w-full opacity-50" fluid={photography.edges[1].node.featuredImage.fluid } />
+            <Img className="w-full opacity-50" fluid={photography.edges[1].node.featuredImage.fluid } alt={photography.edges[1].node.featuredImage.alt} />
           </motion.div>
 
           <div className="w-full md:w-1/2 md:pl-16 xl:w-1/2 3xl:w-5/12 mx-auto relative mb-12 md:mb-20">
@@ -38,7 +38,7 @@ const IndexPage = ({ data: { bio, photography }, location }) => {
 
               <div className="relative overflow-hidden w-full h-full">
                 <div className="opacity-75">
-                  <Img fluid={bio.featuredImage.fluid} key={bio.featuredImage.title} alt={bio.featuredImage.alt} className="w-full image-scale-in" />
+                  <Img fluid={bio.featuredImage.fluid} key={bio.featuredImage.title} alt={bio.featuredImage.title} className="w-full image-scale-in" />
                 </div>
               </div>
             </motion.div>

@@ -29,7 +29,7 @@ const JournalTemplatePage = ({ data: { journal }, location }) => {
               <div className="relative">
                 { journal.featuredImage && (
                   <div className="w-full h-full relative overflow-hidden">
-                    <Img fluid={journal.featuredImage.fluid} alt={journal.featuredImage.title} className="w-full image-scale-in" />
+                    <Img fluid={journal.featuredImage.fluid} alt={journal.featuredImage.alt} className="w-full image-scale-in" />
                   </div>
                 )}                 
               </div>

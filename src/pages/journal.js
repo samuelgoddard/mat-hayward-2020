@@ -21,11 +21,11 @@ const JournalPage = ({ data: { journal, photography }, location }) => {
         className="pt-12 md:pt-40 pb-24 md:pb-40 overflow-hidden relative"
       >
         <motion.div variants={fade} className="hidden md:block fixed top-0 left-0 z-0 w-2/12 xl:pr-8 mt-35vh -ml-8">
-          <Img className="w-full opacity-50" fluid={photography.edges[4].node.featuredImage.fluid } />
+          <Img className="w-full opacity-50" fluid={photography.edges[4].node.featuredImage.fluid} alt={photography.edges[4].node.featuredImage.alt} />
         </motion.div>
 
         <motion.div variants={fade} className="hidden md:block fixed top-0 right-0 z-0 w-2/12 xl:pl-6 mt-65vh lg:mt-45vh -mr-8">
-          <Img className="w-full opacity-50" fluid={photography.edges[5].node.featuredImage.fluid } />
+          <Img className="w-full opacity-50" fluid={photography.edges[5].node.featuredImage.fluid } alt={photography.edges[5].node.featuredImage.alt} />
         </motion.div>
 
         <div className="w-full md:w-1/2 md:pl-16 lg:w-7/12 mx-auto relative">
@@ -39,7 +39,7 @@ const JournalPage = ({ data: { journal, photography }, location }) => {
                 <Link to={`/journal/${node.slug}`} className="flex flex-wrap lg:-mx-3 items-center group">
                   <div className="w-full lg:w-1/3 lg:px-3 mb-4 lg:mb-0">
                     <div className="relative overflow-hidden">
-                      <Img className="w-full transition ease-in-out duration-1000 transform group-hover:scale-110 group-focus:scale-110" fluid={node.featuredImage.fluid } />
+                      <Img className="w-full transition ease-in-out duration-1000 transform group-hover:scale-110 group-focus:scale-110" fluid={node.featuredImage.fluid } alt={node.featuredImage.alt} />
                     </div>
                   </div>
                   <div className="w-full lg:w-2/3 lg:px-3">
