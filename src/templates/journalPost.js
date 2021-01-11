@@ -8,7 +8,7 @@ const JournalTemplatePage = ({ data: { journal }, location }) => {
   return (
     <>
       <SEO
-        titleOverride={ current.metaTags && journal.metaTags.title ? journal.metaTags.title : journal.title }
+        titleOverride={ journal.metaTags && journal.metaTags.title ? journal.metaTags.title : journal.title }
         descriptionOverride={ journal.metaTags && journal.metaTags.description ? journal.metaTags.description : null }
         pathnameOverride={ location.pathname}
         imageOverride={ journal.metaTags && journal.metaTags.image ? journal.metaTags.image.url : null }
