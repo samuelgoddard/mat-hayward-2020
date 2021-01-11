@@ -17,8 +17,7 @@ module.exports = {
     extend: {
       fontFamily: {
         'sans': ['Mier', 'Helvetica', 'Arial', 'sans-serif'],
-        'display': ['Sainte Colombe', 'Georgia', 'Cambria', 'Times New Roman', 'serif'],
-        'serif': ['abril-text', 'Cambria', 'Times New Roman', 'serif'],
+        'display': ['Sainte Colombe', 'Georgia', 'Cambria', 'Times New Roman', 'serif']
       },
       fontSize: {
         'xsvw': '0.5vw',
