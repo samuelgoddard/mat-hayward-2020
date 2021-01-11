@@ -26,7 +26,7 @@ const PhotographyPostPage = ({ data: { current, related }, location }) => {
               variants={fade}
               className="block md:hidden pb-2"
             >
-              <h1 className="font-display text-11xlvw mb-3 pb-0 px-4">{current.title}</h1>
+              <h1 className="font-display uppercase tracking-tighter text-11xlvw mb-3 pb-0 px-4">{current.title}</h1>
             </motion.div>
 
             <div className="w-full md:w-7/12 h-full flex flex-wrap relative order-2 md:order-1">
@@ -43,7 +43,7 @@ const PhotographyPostPage = ({ data: { current, related }, location }) => {
                 variants={fade}
                 className="hidden md:block md:absolute z-10 bottom-0 left-0 p-6 md:p-12 self-end w-full"
               >
-                <h1 className="font-display md:text-8xlvw mb-0 pb-0">{current.title}</h1>
+                <h1 className="font-display tracking-tighter uppercase md:text-7xlvw mb-0 pb-0">{current.title}</h1>
               </motion.div>
             </div>
 

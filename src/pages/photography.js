@@ -35,7 +35,7 @@ const PhotographyPage = ({ data: { photography }, location}) => {
                 key={index}
                 variants={fade}
               >
-                <Link className="text-9xlvw md:text-7xlvw xl:text-6xlvw font-display relative leading-none border-b border-transparent mb-5 md:mb-4vw xl:mb-3vw flex flex-wrap tracking-tighter uppercase" to={`/photography/${node.slug}`}>
+                <Link className="text-9xlvw md:text-7xlvw xl:text-6xlvw font-display relative font-light leading-none border-b border-transparent mb-5 md:mb-4vw xl:mb-3vw flex flex-wrap tracking-tighter uppercase" to={`/photography/${node.slug}`}>
                   {node.title}
 
                   <span className="font-thin text-4xlvw md:text-2xlvw ml-3">({node.date})</span>
