@@ -74,7 +74,7 @@ h2 {
     }
 
     li {
-      @apply text-lg;
+      @apply text-lg tracking-tight font-light;
 
       @screen md {
         @apply text-xl
@@ -90,7 +90,7 @@ h2 {
     }
 
     li {
-      @apply text-lg;
+      @apply text-lg tracking-tight font-light;
 
       @screen md {
         @apply text-xl
