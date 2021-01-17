@@ -5,6 +5,7 @@ import Moment from "react-moment"
 import { motion } from "framer-motion"
 import { Link } from "gatsby"
 import { fade } from "../helpers/transitionHelper"
+import Scroll from "../components/locomotiveScroll"
 
 const JournalPage = ({ data: { journal, photography }, location }) => {
   return (
@@ -14,17 +15,20 @@ const JournalPage = ({ data: { journal, photography }, location }) => {
         pathnameOverride={ location.pathname}
       />
 
+      <Scroll callback={location} />
+
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
         className="pt-12 md:pt-40 pb-24 md:pb-40 overflow-hidden relative"
+        data-scroll-section
       >
-        <motion.div variants={fade} className="hidden md:block fixed top-0 left-0 z-0 w-2/12 xl:pr-8 mt-35vh -ml-8">
+        <motion.div variants={fade} className="hidden md:block fixed top-0 left-0 z-0 w-2/12 xl:pr-8 mt-35vh -ml-8" data-scroll data-scroll-speed="2.25">
           <Img className="w-full opacity-50" fluid={photography.edges[4].node.featuredImage.fluid} alt={photography.edges[4].node.featuredImage.alt} />
         </motion.div>
 
-        <motion.div variants={fade} className="hidden md:block fixed top-0 right-0 z-0 w-2/12 xl:pl-6 mt-65vh lg:mt-45vh -mr-8">
+        <motion.div variants={fade} className="hidden md:block fixed top-0 right-0 z-0 w-2/12 xl:pl-6 mt-65vh lg:mt-45vh -mr-8" data-scroll data-scroll-speed="2.25">
           <Img className="w-full opacity-50" fluid={photography.edges[5].node.featuredImage.fluid } alt={photography.edges[5].node.featuredImage.alt} />
         </motion.div>
 

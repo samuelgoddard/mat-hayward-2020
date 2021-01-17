@@ -3,6 +3,7 @@ import Img from "gatsby-image"
 import SEO from "../components/seo"
 import { motion } from 'framer-motion'
 import { fade } from "../helpers/transitionHelper"
+import Scroll from "../components/locomotiveScroll"
 
 const JournalTemplatePage = ({ data: { journal }, location }) => {
   return (
@@ -14,11 +15,14 @@ const JournalTemplatePage = ({ data: { journal }, location }) => {
         imageOverride={ journal.metaTags && journal.metaTags.image ? journal.metaTags.image.url : null }
       />
 
+      <Scroll callback={location} />
+
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
         className="pb-24 md:pb-32 overflow-hidden relative"
+        data-scroll-section
       >
         <div className="w-full">
           <motion.div
@@ -28,14 +32,18 @@ const JournalTemplatePage = ({ data: { journal }, location }) => {
             <div className="w-full md:w-10/12 md:pl-24 lg:w-10/12 lg:pl-16 xl:pl-32 xl:w-11/12 md:ml-auto relative">
               <div className="relative">
                 { journal.featuredImage && (
-                  <div className="w-full h-full relative overflow-hidden">
-                    <Img fluid={journal.featuredImage.fluid} alt={journal.featuredImage.alt} className="w-full image-scale-in" />
+                  <div className="w-full h-full relative overflow-hidden" data-scroll data-scroll-speed="0">
+                    <div className="w-full relative overflow-hidden" data-scroll>
+                      <div data-scroll data-scroll-speed="0.5" className="overflow-hidden -m-10">
+                        <Img className="w-full h-full object-cover object-center image-scale-in p-10" fluid={journal.featuredImage.fluid} alt={journal.featuredImage.alt} />
+                      </div>
+                    </div>
                   </div>
                 )}                 
               </div>
 
               <div className="w-full md:w-8/12 xl:w-8/12 ml-auto mb-10 md:mb-5vw xl:mb-4vw px-4 md:px-0 text-right">
-                <h1 className="text-10xlvw md:text-5xlvw font-display relative leading-none border-b border-transparent tracking-tighter mb-3 pb-0 uppercase mt-3 md:mt-6 md:pr-12">
+                <h1 className="text-10xlvw md:text-5xlvw font-display relative leading-none border-b border-transparent tracking-tighter mb-3 pb-0 uppercase md:pr-12" data-scroll data-scroll-speed="1">
                   {journal.title}
                 </h1>
               </div>
@@ -56,38 +64,57 @@ const JournalTemplatePage = ({ data: { journal }, location }) => {
                     }
                     {
                       block.model.apiKey === 'single_image' &&
-                        <figure className="mb-8 md:mb-12 xl:mb-16">
-                        <Img fluid={block.single.fluid} key={block.single.title} alt={block.single.alt} className="w-full" />
-                        { block.single.title && (
-                          <figcaption>
-                            { block.single.title }
-                          </figcaption>
-                        )}
-                        </figure>
+                        <div className="relative overflow-hidden mb-8 md:mb-12 xl:mb-16" data-scroll data-scroll-speed="0">
+                          <div className="w-full relative overflow-hidden" data-scroll>
+                            <div data-scroll data-scroll-speed="0.5" className="overflow-hidden -m-10">
+                              <figure>
+                                <Img fluid={block.single.fluid} key={block.single.title} alt={block.single.alt} className="w-full h-full object-cover object-center p-10" />
+                                { block.single.title && (
+                                  <figcaption>
+                                    { block.single.title }
+                                  </figcaption>
+                                )}
+                              </figure>
+                            </div>
+                          </div>
+                        </div>
                     }
                     {
                       block.model.apiKey === 'double_image' &&
                         <div className="overflow-hidden">
                           <div className="flex flex-wrap md:-mx-2 lg:-mx-6">
                             <div className="w-full md:w-1/2 md:px-2 lg:px-6 mb-6 md:mb-12 xl:mb-16">
-                              <figure>
-                                <Img fluid={block.imageOne.fluid} key={block.imageOne.title} alt={block.imageOne.alt} className="w-full" />
-                                { block.imageOne.title && (
-                                  <figcaption>
-                                    { block.imageOne.title }
-                                  </figcaption>
-                                )}
-                              </figure>
+
+                              <div className="relative overflow-hidden" data-scroll data-scroll-speed="0">
+                                <div className="w-full relative overflow-hidden" data-scroll>
+                                  <div data-scroll data-scroll-speed="0.5" className="overflow-hidden -m-10">
+                                    <figure>
+                                      <Img fluid={block.imageOne.fluid} key={block.imageOne.title} alt={block.imageOne.alt} className="w-full h-full object-cover object-center p-10" />
+                                      { block.imageOne.title && (
+                                        <figcaption>
+                                          { block.imageOne.title }
+                                        </figcaption>
+                                      )}
+                                    </figure>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                             <div className="w-full md:w-1/2 md:px-6 mb-8 md:mb-12 xl:mb-16">
-                              <figure>
-                                <Img fluid={block.imageTwo.fluid} key={block.imageTwo.title} alt={block.imageTwo.alt} className="w-full" />
-                                { block.imageTwo.title && (
-                                  <figcaption>
-                                    { block.imageTwo.title }
-                                  </figcaption>
-                                )}
-                              </figure>
+                              <div className="relative overflow-hidden" data-scroll data-scroll-speed="0">
+                                <div className="w-full relative overflow-hidden" data-scroll>
+                                  <div data-scroll data-scroll-speed="0.5" className="overflow-hidden -m-10">
+                                    <figure>
+                                      <Img fluid={block.imageTwo.fluid} key={block.imageTwo.title} alt={block.imageTwo.alt} className="w-full h-full object-cover object-center p-10" />
+                                      { block.imageTwo.title && (
+                                        <figcaption>
+                                          { block.imageTwo.title }
+                                        </figcaption>
+                                      )}
+                                    </figure>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>

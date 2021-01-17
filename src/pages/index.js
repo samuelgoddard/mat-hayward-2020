@@ -3,6 +3,7 @@ import Img from "gatsby-image"
 import SEO from "../components/seo"
 import { motion } from 'framer-motion'
 import { fade } from "../helpers/transitionHelper"
+import Scroll from "../components/locomotiveScroll"
 
 const IndexPage = ({ data: { bio, photography }, location }) => {
   return (
@@ -14,18 +15,21 @@ const IndexPage = ({ data: { bio, photography }, location }) => {
         imageOverride={ bio.metaTags && bio.metaTags.image ? bio.metaTags.image.url : null }
       />
 
+      <Scroll callback={location} />
+
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
+        data-scroll-section
       >
         <div className="pt-40 md:pt-15vw pb-24 md:pb-40 overflow-hidden relative">
 
-          <motion.div variants={fade} className="hidden md:block absolute top-0 left-0 z-0 w-2/12 xl:pr-8 mt-55vh -ml-8">
+          <motion.div variants={fade} className="hidden md:block absolute top-0 left-0 z-0 w-2/12 xl:pr-8 mt-55vh -ml-8" data-scroll data-scroll-speed="3">
             <Img className="w-full opacity-50" fluid={photography.edges[0].node.featuredImage.fluid } alt={photography.edges[0].node.featuredImage.alt} />
           </motion.div>
 
-          <motion.div variants={fade} className="hidden md:block absolute bottom-0 right-0 z-0 w-2/12 xl:pl-6 mb-25vh -mr-8">
+          <motion.div variants={fade} className="hidden md:block absolute bottom-0 right-0 z-0 w-2/12 xl:pl-6 mb-25vh -mr-8" data-scroll data-scroll-speed="3">
             <Img className="w-full opacity-50" fluid={photography.edges[1].node.featuredImage.fluid } alt={photography.edges[1].node.featuredImage.alt} />
           </motion.div>
 
@@ -34,9 +38,9 @@ const IndexPage = ({ data: { bio, photography }, location }) => {
               variants={fade}
               className="relative index-image pt-7vw"
             >
-              <span className="text-xl md:text-2xl uppercase font-sans tracking-widest md:upright absolute bottom-0 right-0 md:right-auto z-10 md:left-0 -mb-4 pb-px mr-8 md:-ml-5 md:mb-16 xl:mb-24 md:pb-0">Biography &bull; MH</span>
+              <span className="text-xl md:text-2xl uppercase font-sans tracking-widest md:upright absolute bottom-0 right-0 md:right-auto z-10 md:left-0 -mb-4 pb-px mr-8 md:-ml-5 md:mb-24 xl:mb-32 md:pb-0" data-scroll data-scroll-speed="0.65">Biography &bull; MH</span>
 
-              <div className="relative overflow-hidden w-full h-full">
+              <div className="relative overflow-hidden w-full h-full -mt-2vw" data-scroll data-scroll-speed="1.25">
                 <div className="opacity-75">
                   <Img fluid={bio.featuredImage.fluid} key={bio.featuredImage.title} alt={bio.featuredImage.title} className="w-full image-scale-in" />
                 </div>
@@ -46,6 +50,8 @@ const IndexPage = ({ data: { bio, photography }, location }) => {
             <motion.div
               variants={fade}
               className="absolute top-0 right-0 z-10 px-4 md:px-0 -mt-20vw md:-mt-5vw"
+              data-scroll
+              data-scroll-speed="0.5"
             >
               <h1 className="text-10xlvw md:text-6xlvw xl:text-5xlvw 3xl:text-4xlvw w-full pr-10vw md:pr-0 md:w-full md:ml-auto md:-mr-15vw xl:w-11/12 xl:-mr-15vw leading-minimal uppercase">
                 { bio.heading }
@@ -53,8 +59,8 @@ const IndexPage = ({ data: { bio, photography }, location }) => {
             </motion.div>
           </div>
 
-          <motion.div variants={fade}>
-            <div className="w-full md:w-1/2 md:pl-16 xl:w-1/2 mx-auto relative max-w-2xl">
+          <motion.div variants={fade} data-scroll data-scroll-speed="1.25">
+            <div className="w-full md:w-1/2 md:pl-16 xl:w-1/2 mx-auto relative max-w-2xl -mt-5vw">
               <div className="px-4 md:px-0 w-11/12 md:w-full">
                 <div className="mb-8 md:mb-12">
                   <span className="block text-xs tracking-wider font-sans uppercase mb-3">Info</span>

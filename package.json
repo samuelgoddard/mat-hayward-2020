@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "author": "Sam Goddard <hello@samgoddard.co.uk>",
   "dependencies": {
+    "@ashthornton/asscroll": "^1.7.3",
     "framer-motion": "^1.8.4",
     "gatsby": "^2.29.2",
     "gatsby-image": "^2.2.40",
@@ -16,11 +17,14 @@
     "gatsby-source-datocms": "^2.5.7",
     "gatsby-source-filesystem": "^2.1.48",
     "gatsby-transformer-sharp": "^2.3.14",
+    "locomotive-scroll": "^4.0.6",
     "prop-types": "^15.7.2",
+    "rallax.js": "^2.0.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
-    "react-moment": "^1.1.1"
+    "react-moment": "^1.1.1",
+    "react-scroll-parallax": "^2.3.5"
   },
   "devDependencies": {
     "postcss-import": "^12.0.1",
