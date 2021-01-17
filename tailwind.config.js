@@ -62,6 +62,9 @@ module.exports = {
         '95vh': '95vh',
         '72': '22rem',
       },
+      height: {
+        swiper: '250vh',
+      },
       lineHeight: {
         minimal: 1.04,
       },

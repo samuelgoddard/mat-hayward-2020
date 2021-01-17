@@ -3,8 +3,7 @@ import { Link } from "gatsby"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
 import { motion } from 'framer-motion'
-import { fade } from "../helpers/transitionHelper"
-import Scroll from "../components/locomotiveScroll"
+import { fadeBumpDelayLong, fadeBumpDelay, fadeBump, fade } from "../helpers/transitionHelper"
 
 const PhotographyPostPage = ({ data: { current, related }, location }) => {
   return (
@@ -15,8 +14,6 @@ const PhotographyPostPage = ({ data: { current, related }, location }) => {
         pathnameOverride={ location.pathname}
         imageOverride={ current.seoMeta && current.seoMeta.image ? current.seoMeta.image.url : null }
       />
-
-      <Scroll callback={location} />
 
     {/* <div className="hidden md:block fixed bottom-0 right-0 z-10 p-6 md:p-12">
       <span className="text-sm uppercase font-sans leading-none">
@@ -34,9 +31,8 @@ const PhotographyPostPage = ({ data: { current, related }, location }) => {
         initial="initial"
         animate="enter"
         exit="exit"
-        data-scroll-section
       >
-        <div className="pt-10 md:pt-0 pb-10 md:pb-0 overflow-hidden">
+        <div className="pt-10 md:pt-0 pb-10 md:pb-0 overflow-hidden" data-scroll-section>
           <div className="w-full ml-auto flex flex-wrap md:h-screen mb-6 md:mb-10vw">
             <motion.div
               variants={fade}
@@ -48,14 +44,14 @@ const PhotographyPostPage = ({ data: { current, related }, location }) => {
             <div className="w-full md:w-7/12 h-full flex flex-wrap relative order-2 md:order-1">
               <div className="w-full self-center">
                 <motion.div
-                  variants={fade}
+                  variants={fadeBump}
                   className="w-full md:w-7/12 xl:w-5/12 mx-auto px-4 md:px-0 max-w-2xl"
                 >
                   <span data-scroll data-scroll-speed="0.5" className="block content" dangerouslySetInnerHTML={{__html:current.blurb}}></span>
                 </motion.div>
               </div>
               <motion.div
-                variants={fade}
+                variants={fadeBumpDelay}
                 className="hidden md:block md:absolute z-10 bottom-0 left-0 p-6 md:p-12 self-end w-full"
               >
                 <h1 className="font-display tracking-tighter uppercase md:text-7xlvw mb-0 pb-0" data-scroll data-scroll-speed="0.5">{current.title}</h1>
@@ -84,17 +80,19 @@ const PhotographyPostPage = ({ data: { current, related }, location }) => {
               <div key={block.id}>
                 {
                   block.model.apiKey === 'single_image' &&
-                    <div className="relative overflow-hidden mb-0 md:mb-12" data-scroll data-scroll-speed="0" key={block.single.title}>
-                      <div className="w-full relative overflow-hidden" data-scroll>
-                        <div data-scroll data-scroll-speed="0.5" className="overflow-hidden -m-10">
-                          <Img className="w-full h-full object-cover object-center p-10" fluid={block.single.fluid} alt={block.single.alt} />
+                    <div data-scroll-section>
+                      <div className="relative overflow-hidden mb-0 md:mb-12" data-scroll data-scroll-speed="0" key={block.single.title}>
+                        <div className="w-full relative overflow-hidden" data-scroll>
+                          <div data-scroll data-scroll-speed="0.5" className="overflow-hidden -m-10">
+                            <Img className="w-full h-full object-cover object-center p-10" fluid={block.single.fluid} alt={block.single.alt} />
+                          </div>
                         </div>
                       </div>
                     </div>
                 }
                 {
                   block.model.apiKey === 'double_image' &&
-                    <div className="overflow-hidden">
+                    <div className="overflow-hidden" data-scroll-section>
                       <div className="flex flex-wrap md:-mx-6">
                         <div className="w-full md:w-1/2 md:px-6 mb-0 md:mb-12">
                           <div className="relative overflow-hidden" data-scroll data-scroll-speed="0" key={block.imageOne.title}>
@@ -123,7 +121,7 @@ const PhotographyPostPage = ({ data: { current, related }, location }) => {
           </motion.div>
         </div>
 
-        <div className=" container px-4  md:justify-center overflow-hidden">
+        <div className=" container px-4  md:justify-center overflow-hidden" data-scroll-section>
           {/* <motion.div variants={fade}>
           <span className="md:ml-auto block text-xs tracking-wider font-sans uppercase mb-3 md:mb-5 md:text-center">Other Locations</span>
             <div className="w-full xl:w-auto ml-auto md:flex md:flex-wrap md:justify-end">

@@ -5,9 +5,9 @@ export const scroll = {
     options: {
       smooth: true,
       smoothMobile:false,
-      getDirection: true,
+      getDirection: false,
       touchMultiplier: 0,
-      lerp: 0.12,
+      lerp: 0.3,
     },
   }
   

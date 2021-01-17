@@ -2,8 +2,7 @@ import React from "react"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
 import { motion } from 'framer-motion'
-import { fade } from "../helpers/transitionHelper"
-import Scroll from "../components/locomotiveScroll"
+import { fadeBumpDelayLong, fadeBumpDelay, fadeBump, fade } from "../helpers/transitionHelper"
 
 const JournalTemplatePage = ({ data: { journal }, location }) => {
   return (
@@ -15,8 +14,6 @@ const JournalTemplatePage = ({ data: { journal }, location }) => {
         imageOverride={ journal.metaTags && journal.metaTags.image ? journal.metaTags.image.url : null }
       />
 
-      <Scroll callback={location} />
-
       <motion.section
         initial="initial"
         animate="enter"
@@ -25,28 +22,19 @@ const JournalTemplatePage = ({ data: { journal }, location }) => {
         data-scroll-section
       >
         <div className="w-full">
-          <motion.div
-            variants={fade}
-            className="relative"
-          >
+          <div className="relative">
             <div className="w-full md:w-10/12 md:pl-24 lg:w-10/12 lg:pl-16 xl:pl-32 xl:w-11/12 md:ml-auto relative">
-              <div className="relative">
+              <motion.div variants={fade} className="relative overflow-hidden">
                 { journal.featuredImage && (
-                  <div className="w-full h-full relative overflow-hidden" data-scroll data-scroll-speed="0">
-                    <div className="w-full relative overflow-hidden" data-scroll>
-                      <div data-scroll data-scroll-speed="0.5" className="overflow-hidden -m-10">
-                        <Img className="w-full h-full object-cover object-center image-scale-in p-10" fluid={journal.featuredImage.fluid} alt={journal.featuredImage.alt} />
-                      </div>
-                    </div>
-                  </div>
+                  <Img className="w-full h-full object-cover object-center image-scale-in" fluid={journal.featuredImage.fluid} alt={journal.featuredImage.alt} />
                 )}                 
-              </div>
+              </motion.div>
 
-              <div className="w-full md:w-8/12 xl:w-8/12 ml-auto mb-10 md:mb-5vw xl:mb-4vw px-4 md:px-0 text-right">
-                <h1 className="text-10xlvw md:text-5xlvw font-display relative leading-none border-b border-transparent tracking-tighter mb-3 pb-0 uppercase md:pr-12" data-scroll data-scroll-speed="1">
+              <motion.div variants={fadeBump} className="w-full md:w-8/12 xl:w-8/12 ml-auto mb-10 md:mb-5vw xl:mb-4vw px-4 md:px-0 text-right">
+                <h1 className="text-10xlvw md:text-5xlvw font-display relative leading-none border-b border-transparent tracking-tighter mb-3 pb-0 uppercase md:pr-12 mt-3 md:mt-5">
                   {journal.title}
                 </h1>
-              </div>
+              </motion.div>
             </div>
 
 
@@ -64,57 +52,38 @@ const JournalTemplatePage = ({ data: { journal }, location }) => {
                     }
                     {
                       block.model.apiKey === 'single_image' &&
-                        <div className="relative overflow-hidden mb-8 md:mb-12 xl:mb-16" data-scroll data-scroll-speed="0">
-                          <div className="w-full relative overflow-hidden" data-scroll>
-                            <div data-scroll data-scroll-speed="0.5" className="overflow-hidden -m-10">
-                              <figure>
-                                <Img fluid={block.single.fluid} key={block.single.title} alt={block.single.alt} className="w-full h-full object-cover object-center p-10" />
-                                { block.single.title && (
-                                  <figcaption>
-                                    { block.single.title }
-                                  </figcaption>
-                                )}
-                              </figure>
-                            </div>
-                          </div>
-                        </div>
+                        <figure className="mb-8 md:mb-12 xl:mb-16">
+                        <Img fluid={block.single.fluid} key={block.single.title} alt={block.single.alt} className="w-full" />
+                        { block.single.title && (
+                          <figcaption>
+                            { block.single.title }
+                          </figcaption>
+                        )}
+                        </figure>
                     }
                     {
                       block.model.apiKey === 'double_image' &&
                         <div className="overflow-hidden">
                           <div className="flex flex-wrap md:-mx-2 lg:-mx-6">
                             <div className="w-full md:w-1/2 md:px-2 lg:px-6 mb-6 md:mb-12 xl:mb-16">
-
-                              <div className="relative overflow-hidden" data-scroll data-scroll-speed="0">
-                                <div className="w-full relative overflow-hidden" data-scroll>
-                                  <div data-scroll data-scroll-speed="0.5" className="overflow-hidden -m-10">
-                                    <figure>
-                                      <Img fluid={block.imageOne.fluid} key={block.imageOne.title} alt={block.imageOne.alt} className="w-full h-full object-cover object-center p-10" />
-                                      { block.imageOne.title && (
-                                        <figcaption>
-                                          { block.imageOne.title }
-                                        </figcaption>
-                                      )}
-                                    </figure>
-                                  </div>
-                                </div>
-                              </div>
+                              <figure>
+                                <Img fluid={block.imageOne.fluid} key={block.imageOne.title} alt={block.imageOne.alt} className="w-full" />
+                                { block.imageOne.title && (
+                                  <figcaption>
+                                    { block.imageOne.title }
+                                  </figcaption>
+                                )}
+                              </figure>
                             </div>
                             <div className="w-full md:w-1/2 md:px-6 mb-8 md:mb-12 xl:mb-16">
-                              <div className="relative overflow-hidden" data-scroll data-scroll-speed="0">
-                                <div className="w-full relative overflow-hidden" data-scroll>
-                                  <div data-scroll data-scroll-speed="0.5" className="overflow-hidden -m-10">
-                                    <figure>
-                                      <Img fluid={block.imageTwo.fluid} key={block.imageTwo.title} alt={block.imageTwo.alt} className="w-full h-full object-cover object-center p-10" />
-                                      { block.imageTwo.title && (
-                                        <figcaption>
-                                          { block.imageTwo.title }
-                                        </figcaption>
-                                      )}
-                                    </figure>
-                                  </div>
-                                </div>
-                              </div>
+                              <figure>
+                                <Img fluid={block.imageTwo.fluid} key={block.imageTwo.title} alt={block.imageTwo.alt} className="w-full" />
+                                { block.imageTwo.title && (
+                                  <figcaption>
+                                    { block.imageTwo.title }
+                                  </figcaption>
+                                )}
+                              </figure>
                             </div>
                           </div>
                         </div>
@@ -123,7 +92,7 @@ const JournalTemplatePage = ({ data: { journal }, location }) => {
                 ))
               }
             </motion.div>
-          </motion.div> 
+          </div> 
         </div>
       </motion.section>
     </>
