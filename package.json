@@ -17,7 +17,7 @@
     "gatsby-source-datocms": "^2.5.7",
     "gatsby-source-filesystem": "^2.1.48",
     "gatsby-transformer-sharp": "^2.3.14",
-    "locomotive-scroll": "^4.0.6",
+    "locomotive-scroll": "^4.1.2",
     "prop-types": "^15.7.2",
     "rallax.js": "^2.0.4",
     "react": "^16.12.0",
